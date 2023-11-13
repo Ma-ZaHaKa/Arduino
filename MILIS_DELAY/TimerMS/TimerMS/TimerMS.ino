@@ -1,12 +1,24 @@
+#include <TimerMs.h>
+
+TimerMs tmr(500);
+
+
 void setup()
 {
   Serial.begin(9600);
+  tmr.start();
+  tmr.attach(OnTimer);
 }
 
+void OnTimer()
+{
+  Serial.println("!!!");
+}
 
 void loop()
 {
-  TASK(1000);
+  tmr.tick();
+  //TASK(1000);
 }
 
 void TASK(int delay)
