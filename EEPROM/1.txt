@@ -1,0 +1,18 @@
+#include <EEPROM.h>
+
+int L = 5;
+int L_perc = 10; // start val
+int L_perc_min = 46; //47 from stop
+int R = 6;
+int R_perc = 10; // start val
+int R_perc_min = 54; //69 from stop //min val to move
+
+void SetPerc() {
+  EEPROM.put(0, L_perc);
+  EEPROM.put(sizeof(int), R_perc);
+}
+
+void GetPerc() {
+  EEPROM.get(0, L_perc);
+  EEPROM.get(sizeof(int), R_perc);
+}

@@ -1,0 +1,19 @@
+#include "GyverTM1637.h"
+GyverTM1637 disp(2, 3);
+void setup() {
+  disp.clear();        // очистить
+  disp.brightness(7);  // яркость 0-7
+  disp.displayByte(_H, _E, _L, _L);  // вывести текст
+  delay(2000);
+  disp.displayInt(1234);      // вывести чисел
+  
+  delay(2000);
+  disp.displayClock(16, 37);  // вывести часы и минуты
+}
+void loop() {
+  // мигаем двоеточием дисплея
+  disp.point(0);
+  delay(500);
+  disp.point(1);
+  delay(500);
+}
