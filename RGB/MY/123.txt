@@ -1,0 +1,51 @@
+int redPin = 3;
+int greenPin = 5;
+int bluePin = 6;
+ 
+void setup()
+{
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+}
+ 
+void loop()
+{
+  int _delay = 10;
+  Animation1(redPin, greenPin, bluePin, _delay);
+}
+
+
+
+
+void Animation1(int R, int G, int B, int _delay)
+{
+	// RED
+	analogWrite(R, 255);
+	analogWrite(G, 0);
+	analogWrite(B, 0);
+
+	// YELLOW
+	for (int i = 0; i <= 255; i++) { analogWrite(G, i); delay(_delay); }
+	delay(_delay);
+
+	// GREEN
+	for (int i = 255; i >= 0; i--) { analogWrite(R, i); delay(_delay); }
+	delay(_delay);
+
+	// BULE (LIGHT)
+	for (int i = 0; i <= 255; i++) { analogWrite(B, i); delay(_delay); }
+	delay(_delay);
+
+	// BLUE (DARK)
+	for (int i = 255; i >= 0; i--) { analogWrite(G, i); delay(_delay); }
+	delay(_delay);
+
+	// PURPLE
+	for (int i = 0; i <= 255; i++) { analogWrite(R, i); delay(_delay); }
+	delay(_delay);
+
+	// RED
+	for (int i = 255; i >= 0; i--) { analogWrite(B, i); delay(_delay); }
+	delay(_delay);
+}

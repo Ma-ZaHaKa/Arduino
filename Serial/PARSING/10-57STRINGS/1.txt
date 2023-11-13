@@ -1,0 +1,37 @@
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  Serial.setTimeout(1000);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (Serial.available())
+  {
+    char data[30];
+    int amount = Serial.readBytesUntil(';', data, 30);
+    data[amount] = NULL;
+    Serial.println(data);
+
+    char* ptrs[10]; // указатели на строки
+    int count = 0; // счётчик подстрок
+    char* offset = str; // указатель для работы
+    while (true)
+    {
+      ptrs[count++] = offset;   // запоминаем указатель
+      offset = strchr(offset, ','); // ищем новую запятую
+      if (offset)                   // если это не NULL
+      {
+        *offset = NULL;             // заменяем запятую на HULL
+        offset++;                   // продолжаем
+      }
+      else break;                   // иначе покидаем цикл
+    }
+    // выводим строки
+    for(int i = 0; i < count; i++) { Serial.println(data[i]); }
+
+    
+  }
