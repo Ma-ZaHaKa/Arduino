@@ -45,7 +45,7 @@ public:
 
     void OnAnimation(); // loop tick
     void StopAnimation();
-    void PrintString(const String& str);
+    void PrintString(const String& str, bool stop_all_anim = false);
 
     //----------CUTOM--ANIM1 PROSHIVKA
     // 
