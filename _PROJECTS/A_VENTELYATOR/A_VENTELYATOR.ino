@@ -33,8 +33,7 @@
 //------DATA-------
 //#define JSON_BUFFER_SIZE 256
 #define JSON_BUFFER_SIZE 128
-//#define PROJ_CODE "debug_station"
-const char PROJ_CODE[] PROGMEM = "debug_station";
+#define PROJ_CODE "debug_station"
 //----vent
 byte L_perc = 10; // start val
 byte R_perc = 10; // start val
