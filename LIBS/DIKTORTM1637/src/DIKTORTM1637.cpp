@@ -599,6 +599,7 @@ void DIKTORTM1637::StopAnimation()
 
 void DIKTORTM1637::PrintString(const String& str)
 {
+	StopAnimation();
 	if (str.length() == 1) { displayByte(getDisplayChar(str[0]), _empty, _empty, _empty); }
 	else if (str.length() == 1) { displayByte(getDisplayChar(str[0]), getDisplayChar(str[1]), _empty, _empty); }
 	else if (str.length() == 2) { displayByte(getDisplayChar(str[0]), getDisplayChar(str[1]), getDisplayChar(str[2]), _empty); }
